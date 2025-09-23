@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+
+/* index.css */
+
+/* Define variables for both light and dark modes */
+:root {
+  --background-color: #333;
+  --text-color: #fff;
+  --button-bg-color: #555;
+  --button-text-color: #fff;
+  --sidebar-bg-color: #032e15;
+}
+
+/* Light mode styles - these are the default values and are applied if no class is present */
+body.light {
+  --background-color: #fff;
+  --text-color: #333;
+  --button-bg-color: #f0f0f0;
+  --button-text-color: #333;
+  --sidebar-bg-color: #00ab47;
+}
+
+/* Dark mode styles - these override the default values when the .dark class is present */
+body.dark {
+  --background-color: #333;
+  --text-color: #fff;
+  --button-bg-color: #555;
+  --button-text-color: #fff;
+  --sidebar-bg-color: #032e15;
+}
+
+/* Apply the variables to your elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
