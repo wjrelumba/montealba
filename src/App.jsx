@@ -1,9 +1,11 @@
 import { Outlet } from 'react-router-dom'
 import { ThemeProvider } from './contextProviders/ThemeProvider'
-import Sidebar from './components/Sidebar'
 import UserProvider from './contextProviders/UserProvider'
 import MediaProvider from './contextProviders/MediaProvider'
 import ToastComponent from './components/ToastComponent'
+import Navbar from './components/Navbar'
+import SidebarProvider from './contextProviders/SidebarProvider'
+import Sidebar from './components/Sidebar'
 
 function App() {
   return (
@@ -12,8 +14,11 @@ function App() {
         <UserProvider>
           <MediaProvider>
             <ThemeProvider>
-              <Sidebar/>
-              <Outlet/>
+              <SidebarProvider>
+                <Sidebar/>
+                <Navbar/>
+                <Outlet/>
+              </SidebarProvider>
             </ThemeProvider>
           </MediaProvider>
         </UserProvider>

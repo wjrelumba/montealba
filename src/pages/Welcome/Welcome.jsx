@@ -29,7 +29,7 @@ export default function Welcome() {
             setRenderedSource(nextSource);
             setNextSource(null);
 
-            const timeoutId = setTimeout(() => setIsVisible(true), 150);
+            const timeoutId = setTimeout(() => setIsVisible(true), 300);
             return () => clearTimeout(timeoutId);
         }
     }, [nextSource]);
@@ -56,10 +56,10 @@ export default function Welcome() {
     if(isMobile){
         return (
             <div className='w-full h-[80%] flex flex-col items-center justify-center'>
-                <div className={`w-[65%] h-[15rem] rounded-full`}>
+                <div className={`w-[65%] rounded-full`}>
                     {/* The image that is actually displayed to the user */}
                     <img
-                        className={`transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                        className={`transition-opacity duration-100 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
                         key={renderedSource}
                         src={renderedSource}
                         alt="Theme Logo"

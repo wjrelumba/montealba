@@ -5,11 +5,12 @@
 
 /* Define variables for both light and dark modes */
 :root {
-  --background-color: #333;
-  --text-color: #fff;
+  --background-color: #182217;
+  --text-color: #ffefcb;
   --button-bg-color: #555;
-  --button-text-color: #fff;
-  --sidebar-bg-color: #032e15;
+  --button-border-color: #ffefcb;
+  --button-text-color: #ffefcb;
+  --sidebar-bg-color: #182217;
 }
 
 /* Light mode styles - these are the default values and are applied if no class is present */
@@ -59,7 +60,7 @@ button {
   transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar {
+.navbar {
   background-color: var(--sidebar-bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
