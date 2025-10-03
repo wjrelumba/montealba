@@ -14,20 +14,22 @@
 
 /* Light mode styles - these are the default values and are applied if no class is present */
 body.light {
-  --background-color: #fff;
-  --text-color: #333;
+  --background-color: #ffefcb;
+  --text-color: #00620a;
   --button-bg-color: #f0f0f0;
-  --button-text-color: #333;
-  --sidebar-bg-color: #00ab47;
+  --button-border-color: #00620a;
+  --button-text-color: #00620a;
+  --sidebar-bg-color: #ffefcb;
 }
 
 /* Dark mode styles - these override the default values when the .dark class is present */
 body.dark {
-  --background-color: #333;
-  --text-color: #fff;
+  --background-color: #182217;
+  --text-color: #ffefcb;
   --button-bg-color: #555;
-  --button-text-color: #fff;
-  --sidebar-bg-color: #00620a;
+  --button-border-color: #ffefcb;
+  --button-text-color: #ffefcb;
+  --sidebar-bg-color: #182217;
 }
 
 /* Apply the variables to your elements */
@@ -40,6 +42,10 @@ body {
   padding: 0;
 }
 
+input {
+  border: solid 2px var(--button-border-color);
+}
+
 #root, html {
   height: 100%;
   margin: 0;
@@ -47,11 +53,8 @@ body {
 }
 
 button {
-  background-color: var(--button-bg-color);
   color: var(--button-text-color);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  border: solid 2px var(--button-border-color);
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -60,4 +63,22 @@ button {
   background-color: var(--sidebar-bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+}
+
+@font-face {
+  /* This is the name you will use to reference the font in your styles */
+  font-family: 'AutumnCrush';
+  
+  /* Point to the font file. The path is relative to the CSS file's location. */
+  src: url('/src/fonts/Autumn_Crush.ttf') format('truetype');
+  
+  /* Optional: Set the font weight and style if the file is a specific variation (e.g., bold, italic) */
+  font-weight: normal; 
+  font-style: normal;
+}
+
+h1,
+label,
+button {
+  font-family: 'AutumnCrush';
 }
