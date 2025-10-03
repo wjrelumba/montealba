@@ -1,6 +1,6 @@
 import { useSidebar } from '../contextProviders/SidebarProvider'
 import { useTheme } from '../contextProviders/ThemeProvider';
-import supabase from '../supabase/Supabase';
+import supabase from '../supabase/supabase';
 
 export default function Sidebar() {
     const {sidebarOpen, setSidebarOpen} = useSidebar();
