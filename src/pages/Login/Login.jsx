@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useMedia } from '../../contextProviders/MediaProvider'
-import supabase from '../../supabase/Supabase';
+import supabase from '../../supabase/supabase';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../contextProviders/UserProvider';
