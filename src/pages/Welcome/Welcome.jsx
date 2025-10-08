@@ -47,7 +47,7 @@ export default function Welcome() {
     // Check if user is signed in
     useEffect(() => {
       if(signedIn){
-        navigate('/dashboard');
+        navigate('/dashboard/orders');
       }
     },[signedIn])
 
@@ -76,7 +76,7 @@ export default function Welcome() {
                     )}
 
                 </div>
-                <div className={`w-[65%] p-[0.1rem] mb-4 ${theme == 'light' ? 'bg-[#00620a]' : 'bg-[#ffefcb]'}`}/>
+                {/* <div className={`w-[65%] p-[0.1rem] mb-4 ${theme == 'light' ? 'bg-[#182217]' : 'bg-[#ffefcb]'}`}/> */}
                 <div className='w-[75%] flex justify-center gap-2'>
                   <button onClick={() => navigateTo('signup')} className='px-3 py-1 rounded-full w-[6rem]'>Sign Up</button>
                   <button onClick={() => navigateTo('login')} className='px-3 py-1 rounded-full w-[6rem]'>Log In</button>
@@ -110,7 +110,7 @@ export default function Welcome() {
                     )}
 
                 </div>
-                <div className={`w-[65%] p-[0.1rem] mb-4 ${theme == 'light' ? 'bg-[#00620a]' : 'bg-[#ffefcb]'}`}/>
+                {/* <div className={`w-[65%] p-[0.1rem] mb-4 ${theme == 'light' ? 'bg-[#182217]' : 'bg-[#ffefcb]'}`}/> */}
                 <div className='w-[75%] flex justify-center gap-2'>
                   <button onClick={() => navigateTo('signup')} className='px-3 py-1 rounded-full w-[6rem]'>Sign Up</button>
                   <button onClick={() => navigateTo('login')} className='px-3 py-1 rounded-full w-[6rem]'>Log In</button>

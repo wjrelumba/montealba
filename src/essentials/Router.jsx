@@ -18,8 +18,12 @@ const router = createBrowserRouter(
                 },
                 {
                     path: 'dashboard',
-                    element: <Pages.Dashboard/>
-                }
+                    element: <Pages.Dashboard/>,
+                    children: [{
+                        path: 'orders',
+                        element: <Pages.Orders/>
+                    }]
+                },
             ]
         }
     ]

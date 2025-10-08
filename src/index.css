@@ -16,10 +16,10 @@
 /* Light mode styles - these are the default values and are applied if no class is present */
 body.light {
   --background-color: #ffefcb;
-  --text-color: #00620a;
+  --text-color: #182217;
   --button-bg-color: #f0f0f0;
-  --button-border-color: #00620a;
-  --button-text-color: #00620a;
+  --button-border-color: #182217;
+  --button-text-color: #182217;
   --sidebar-bg-color: #ffefcb;
 }
 

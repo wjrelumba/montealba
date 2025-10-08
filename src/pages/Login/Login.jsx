@@ -29,7 +29,7 @@ export default function Login() {
     else if(data){
       console.log(data);
       if(!loading){
-        navigate('/dashboard');
+        navigate('/dashboard/orders');
       }
     };
   };
