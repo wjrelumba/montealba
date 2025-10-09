@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useSidebar } from '../contextProviders/SidebarProvider'
 import { useTheme } from '../contextProviders/ThemeProvider';
 import supabase from '../supabase/supabase';
+import useNavLinks from '../customHooks/useNavLinks';
 
 export default function Sidebar() {
     const {sidebarOpen, setSidebarOpen} = useSidebar();
@@ -9,15 +10,7 @@ export default function Sidebar() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const navLinks = [
-        {
-            name: 'Orders',
-            url: 'orders',
-        },{
-            name: 'Create Order',
-            url: 'createOrder',
-        },
-    ];
+    const navLinks = useNavLinks(); 
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
