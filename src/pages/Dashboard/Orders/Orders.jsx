@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { useUser } from '../../contextProviders/UserProvider'
+import { useUser } from '../../../contextProviders/UserProvider'
 import { useNavigate } from 'react-router-dom';
-import ItemComponent from '../../components/ItemsComponent/ItemComponent';
-import { useMedia } from '../../contextProviders/MediaProvider';
+import ItemComponent from '../../../components/ItemsComponent/ItemComponent';
+import { useMedia } from '../../../contextProviders/MediaProvider';
 
 const sampleFoodArray = [
     {
@@ -39,7 +39,7 @@ export default function Orders() {
         return (
             <div className='w-full h-[90%] p-2 overflow-scroll'>
                 <div className='mb-3'>
-                    <h1 className='text-2xl'>Products</h1>
+                    <h1 className='text-2xl'>Orders</h1>
                 </div>
                 <div className='w-full flex flex-col gap-2 items-center'>
                     {sampleFoodArray.map((data, index) => (
@@ -54,7 +54,7 @@ export default function Orders() {
         return (
             <div className='w-full h-[80%] p-2'>
                 <div className='mb-5'>
-                    <h1 className='text-2xl'>Products</h1>
+                    <h1 className='text-2xl'>Orders</h1>
                 </div>
                 <div className='flex items-center gap-2 flex-wrap'>
                     {sampleFoodArray.map((data, index) => (

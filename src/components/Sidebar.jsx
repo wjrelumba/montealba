@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSidebar } from '../contextProviders/SidebarProvider'
 import { useTheme } from '../contextProviders/ThemeProvider';
 import supabase from '../supabase/supabase';
@@ -5,6 +6,18 @@ import supabase from '../supabase/supabase';
 export default function Sidebar() {
     const {sidebarOpen, setSidebarOpen} = useSidebar();
     const {theme, toggleTheme} = useTheme();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const navLinks = [
+        {
+            name: 'Orders',
+            url: 'orders',
+        },{
+            name: 'Create Order',
+            url: 'createOrder',
+        },
+    ];
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
@@ -14,6 +27,12 @@ export default function Sidebar() {
     const signOutUser = async() => {
         setSidebarOpen(false);
         await supabase.auth.signOut();
+    };
+
+    // Navigation function
+    const navigateTo = (urlValue) => {
+        navigate(`/dashboard/${urlValue}`);
+        toggleSidebar();
     };
 
   return (
@@ -31,6 +50,14 @@ export default function Sidebar() {
             <div className='w-full flex justify-end'>
                 <svg onClick={toggleSidebar} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </div>
+        </div>
+        {/* Navigation div */}
+        <div className='mt-5 flex flex-col gap-3'>
+            {navLinks.map((data, index) => (
+                <div onClick={() => navigateTo(data.url)} key={index} className={`${location.pathname == (`/dashboard/${data.url}`) ? 'border-b-[2px]' : ''}`}>
+                    <h1>{data.name}</h1>
+                </div>
+            ))}
         </div>
         <div className='mt-5 flex flex-col'>
             <div>

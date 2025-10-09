@@ -22,6 +22,9 @@ const router = createBrowserRouter(
                     children: [{
                         path: 'orders',
                         element: <Pages.Orders/>
+                    },{
+                        path: 'createOrder',
+                        element: <Pages.CreateOrder/>,
                     }]
                 },
             ]
