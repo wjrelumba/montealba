@@ -10,7 +10,7 @@ export default function Sidebar() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const navLinks = useNavLinks(); 
+    const navLinks = useNavLinks();
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
