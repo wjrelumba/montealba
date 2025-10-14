@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useSidebar } from '../contextProviders/SidebarProvider';
 import { useMedia } from '../contextProviders/MediaProvider';
 import useNavLinks from '../customHooks/useNavLinks';
+import supabase from '../supabase/supabase';
 
 export default function Navbar() {
     const {theme, toggleTheme} = useTheme();
@@ -25,6 +26,12 @@ export default function Navbar() {
     // Navigation function
     const navigateTo = (urlValue) => {
         navigate(`/dashboard/${urlValue}`);
+    };
+
+    // Sign out function
+    const signOutUser = async() => {
+        setSidebarOpen(false);
+        await supabase.auth.signOut();
     };
     
     if(isMobile) return (
@@ -50,7 +57,7 @@ export default function Navbar() {
   );
 
   if(!isMobile) return (
-    <div className={`w-full h-[3.5rem] navbar sticky top-0 grid grid-cols-${navLinks.length + 1} z-10`}>
+    <div className={`w-full h-[3.5rem] navbar sticky top-0 grid grid-flow-col ${location.pathname.startsWith('/dashboard/') ? `grid-cols-${navLinks.length + 2}` : ''} z-10`}>
         <div className='w-full flex items-center justify-start px-2'>
             <div onClick={toggleTheme}>
                 {theme === 'light' ? (
@@ -60,11 +67,23 @@ export default function Navbar() {
                 )}
             </div>
         </div>
-        {navLinks.map((data, index) => (
-            <div onClick={() => navigateTo(data.url)} key={index} className={`w-full flex justify-center items-center ${location.pathname == (`/dashboard/${data.url}`) ? 'border-b-[2px]' : ''}`}>
-                <h1>{data.name}</h1>
-            </div>
-        ))}
+        {location.pathname.startsWith('/dashboard/') && (
+            <>
+                {navLinks.map((data, index) => (
+                            <div onClick={() => navigateTo(data.url)} key={index} className={`w-full flex justify-center items-center ${location.pathname == (`/dashboard/${data.url}`) ? 'border-b-[2px]' : ''}`}>
+                                <h1>{data.name}</h1>
+                            </div>
+                        )
+                    )
+                }
+                <div className='w-full flex items-end justify-center flex-col px-2'>
+                    <div>
+                        <button onClick={signOutUser} className='px-2 rounded-xl'>Sign Out</button>
+                    </div>
+                </div>
+            </>
+            )
+        }
     </div>
   )
 }
