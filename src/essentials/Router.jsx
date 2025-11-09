@@ -25,6 +25,9 @@ const router = createBrowserRouter(
                     },{
                         path: 'createOrder',
                         element: <Pages.CreateOrder/>,
+                    },{
+                        path: 'products',
+                        element: <Pages.Products/>,
                     }]
                 },
             ]

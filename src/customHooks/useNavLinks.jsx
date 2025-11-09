@@ -7,6 +7,10 @@ export default function useNavLinks() {
             name: 'Create Order',
             url: 'createOrder',
         },
+        {
+            name: 'Products',
+            url: 'products',
+        },
     ];
 
     return navLinks;
