@@ -88,7 +88,7 @@ export default function Orders() {
         <>
             <div className='w-full h-full flex flex-wrap justify-center gap-2'>
                 <div className='w-full px-2'>
-                    <h1 className='text-3xl'>Orders</h1>
+                    <h1 className='text-3xl mb-3'>Orders</h1>
                 </div>
                 {sampleOrdersArray && sampleOrdersArray.map((data, index) => (
                     <ItemComponent key={index} itemDetails={data} mode={'ordersMode'} />
@@ -99,7 +99,10 @@ export default function Orders() {
 
     if(!isMobile) return (
         <>
-            <div className='flex flex-wrap'>
+            <div className='w-full h-full flex flex-wrap gap-2'>
+                <div className='w-full px-2'>
+                    <h1 className='text-3xl mb-3'>Orders</h1>
+                </div>
                 {sampleOrdersArray && sampleOrdersArray.map((data, index) => (
                     <ItemComponent key={index} itemDetails={data} mode={'ordersMode'} />
                 ))}
