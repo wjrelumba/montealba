@@ -70,7 +70,7 @@ export default function Navbar() {
         {location.pathname.startsWith('/dashboard/') && (
             <>
                 {navLinks.map((data, index) => (
-                            <div onClick={() => navigateTo(data.url)} key={index} className={`w-full flex justify-center items-center ${location.pathname == (`/dashboard/${data.url}`) ? 'border-b-[2px]' : ''}`}>
+                            <div onClick={() => navigateTo(data.url)} key={index} className={`hover:cursor-pointer w-full flex justify-center items-center ${location.pathname == (`/dashboard/${data.url}`) ? 'border-b-[2px]' : ''}`}>
                                 <h1>{data.name}</h1>
                             </div>
                         )

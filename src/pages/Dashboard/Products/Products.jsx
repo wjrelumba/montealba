@@ -18,7 +18,7 @@ const sampleFoodArray = [
         price: 50,
         image_url: '/Tofu_Sisig.jpg',
     }
-]
+];
 
 export default function Products() {
     const isMobile = useMedia();
@@ -32,7 +32,7 @@ export default function Products() {
                 </div>
                 <div className='w-full flex flex-col gap-2 items-center'>
                     {sampleFoodArray.map((data, index) => (
-                        <ItemComponent key={index} itemDetails={data}/>
+                        <ItemComponent key={index} itemDetails={data} mode={'productsMode'}/>
                     ))}
                 </div>
             </div>
@@ -47,7 +47,7 @@ export default function Products() {
                 </div>
                 <div className='flex items-center gap-2 flex-wrap'>
                     {sampleFoodArray.map((data, index) => (
-                        <ItemComponent key={index} itemDetails={data}/>
+                        <ItemComponent key={index} itemDetails={data} mode={'productsMode'}/>
                     ))}
                 </div>
             </div>
