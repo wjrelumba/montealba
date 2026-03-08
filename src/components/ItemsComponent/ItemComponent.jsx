@@ -17,6 +17,7 @@ export default function ItemComponent({
       return (sumOfProducts);
     };
 
+  // Product page mode rendering
   if(mode == 'productsMode') return (
     <div className={`rounded-2xl p-3 w-[20rem] h-[10rem] flex items-center gap-2 border-[2px] ${theme == 'light' ? 'border-[#182217]' : 'border-[#ffefcb]'}`}>
         <div className={`w-1/2 h-full rounded-lg p-1 ${theme == 'light' ? 'bg-[#182217]' : 'bg-[#ffefcb]'}`}>
@@ -34,8 +35,9 @@ export default function ItemComponent({
     </div>
   );
 
+  // Orders mode rendering
   if(mode == 'ordersMode') return (
-    <div className={`rounded-2xl p-3 w-[20rem] h-[20%] border-[2px] ${theme == 'light' ? 'border-[#182217]' : 'border-[#ffefcb]'}`}>
+    <div className={`rounded-2xl p-3 w-[20rem] border-[2px] ${theme == 'light' ? 'border-[#182217]' : 'border-[#ffefcb]'}`}>
         <div className='w-full flex flex-col'>
           <h1 className='text-3xl w-full border-b-[2px] mb-1'>{itemDetails.owner}</h1>
           {/* Classifications */}

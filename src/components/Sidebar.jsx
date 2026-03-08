@@ -12,6 +12,7 @@ export default function Sidebar() {
 
     const navLinks = useNavLinks();
 
+    // Toggle sidebar function
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
@@ -30,6 +31,7 @@ export default function Sidebar() {
 
   return (
     <div className={`h-full absolute w-[9rem] flex flex-col p-2 z-20 ${theme == 'light' ? 'bg-[#c0b395]' : 'bg-[#0c110c]'} ${sidebarOpen ? 'left-0' : 'left-[-9rem]'} transition-all ease-in-out duration-200`}>
+        {/* Toggle Div */}
         <div className='w-full grid grid-cols-2'>
             <div className='flex items-center justify-start'>
                 <div onClick={toggleTheme}>

@@ -19,21 +19,24 @@ export default function Login() {
 
   // Function to login
   const login = async() => {
-    const {data, error} = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if(error){
-      toast.error(error.message);
-    }
-    else if(data){
-      console.log(data);
-      if(!loading){
-        navigate('/dashboard/orders');
+    if((email !== null && email !== '') && (password !== null && password !== '')){
+      const {data, error} = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if(error){
+        toast.error(error.message);
       }
+      else if(data){
+        console.log(data);
+        if(!loading){
+          navigate('/dashboard/orders');
+        }
+      };
     };
   };
 
+  // Form input handler
   const inputHandler = (e) => {
     const {value, name} = e.target;
 
@@ -47,8 +50,16 @@ export default function Login() {
     }
   };
 
+  // Go back to welcome page function
   const goBackToWelcome = () => {
     navigate('/');
+  };
+
+  // Form submit function
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    login();
   };
 
   // Check if user is signed in
@@ -62,26 +73,28 @@ export default function Login() {
   if(isMobile){
     return (
       <div className='w-full h-[80%] flex flex-col justify-center items-center'>
+        {/* Back to welcome button */}
         <div onClick={goBackToWelcome} className='w-[60%] flex justify-start mb-5'>
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </div>
-        <div className='w-[60%] flex flex-col gap-1'>
+        {/* Login Form section */}
+        <form onSubmit={submitForm} className='w-[60%] flex flex-col gap-1'>
           <h1 className='text-3xl mb-5'>Login</h1>
           {/* Email */}
           <div>
             <label>Email: </label>
-            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='email' type="email" />
+            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='email' type="email" required/>
           </div>
           {/* Password */}
           <div>
             <label>Password: </label>
-            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='password' type="password" />
+            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='password' type="password" required/>
           </div>
           {/* Button login */}
           <div className='w-full flex justify-end'>
             <button className='rounded-xl px-2' onClick={login}>Login</button>
           </div>
-        </div>
+        </form>
       </div>
     )
   }
@@ -90,28 +103,30 @@ export default function Login() {
   if(!isMobile){
     return (
       <div className='w-full h-[80%] flex flex-col justify-center items-center'>
-        <div onClick={goBackToWelcome} className='w-[35%] flex justify-start mb-5'>
+        {/* Back button */}
+        <div onClick={goBackToWelcome} className='w-[25%] flex justify-start mb-5'>
           <div className={`w-[3rem] flex justify-center items-center border-[2px] ${theme == 'light' ? 'border-[#182217]' : 'border-[#ffefcb]'} rounded-xl hover:cursor-pointer`}>
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
           </div>
         </div>
-        <div className={`w-[35%] flex flex-col gap-1 border-[2px] ${theme == 'light' ? 'border-[#182217]' : 'border-[#ffefcb]'} p-3 rounded-2xl`}>
+        {/* Login Form */}
+        <form onSubmit={submitForm} className={`w-[25%] flex flex-col gap-1 border-[2px] ${theme == 'light' ? 'border-[#182217]' : 'border-[#ffefcb]'} p-3 rounded-2xl`}>
           <h1 className='text-3xl mb-5'>Login</h1>
           {/* Email */}
           <div>
             <label>Email: </label>
-            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='email' type="email" />
+            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='email' type="email" required/>
           </div>
           {/* Password */}
           <div>
             <label>Password: </label>
-            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='password' type="password" />
+            <input className='rounded-xl w-full px-2' onChange={inputHandler} name='password' type="password" required/>
           </div>
           {/* Button login */}
           <div className='w-full flex justify-end'>
             <button className='rounded-xl px-2' onClick={login}>Login</button>
           </div>
-        </div>
+        </form>
       </div>
     )
   }

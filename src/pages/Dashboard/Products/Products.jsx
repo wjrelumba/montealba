@@ -26,11 +26,13 @@ export default function Products() {
     // Mobile render
     if(isMobile){
         return (
-            <div className='w-full h-[90%] p-2 overflow-scroll'>
+            <div className='w-full h-[90%] p-2'>
+                {/* Title Div */}
                 <div className='mb-3'>
                     <h1 className='text-2xl'>Products</h1>
                 </div>
-                <div className='w-full flex flex-col gap-2 items-center'>
+                {/* Products Section */}
+                <div className='h-[28.5rem] w-full flex flex-col gap-2 items-center overflow-scroll'>
                     {sampleFoodArray.map((data, index) => (
                         <ItemComponent key={index} itemDetails={data} mode={'productsMode'}/>
                     ))}

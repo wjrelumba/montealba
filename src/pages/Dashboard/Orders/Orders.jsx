@@ -69,6 +69,26 @@ const sampleOrdersArray = [
                 price: 50,
             },
         ],
+    },
+    {
+        owner: 'Cristina',
+        items: [
+            {
+                item_name: 'Chili Garlic',
+                quantity: 1,
+                price: 100,
+            },
+            {
+                item_name: 'Tofu Sisig',
+                quantity: 1,
+                price: 50,
+            },
+            {
+                item_name: 'Pork Sisig',
+                quantity: 1,
+                price: 50,
+            },
+        ],
     }
 ];
 
@@ -90,16 +110,19 @@ export default function Orders() {
                 <div className='w-full px-2'>
                     <h1 className='text-3xl mb-3'>Orders</h1>
                 </div>
-                {sampleOrdersArray && sampleOrdersArray.map((data, index) => (
-                    <ItemComponent key={index} itemDetails={data} mode={'ordersMode'} />
-                ))}
+                {/* Orders section */}
+                <div className='h-[28.5rem] overflow-scroll flex flex-col gap-2'>
+                    {sampleOrdersArray && sampleOrdersArray.map((data, index) => (
+                        <ItemComponent key={index} itemDetails={data} mode={'ordersMode'} />
+                    ))}
+                </div>
             </div>
         </>
     );
 
     if(!isMobile) return (
         <>
-            <div className='w-full h-full flex flex-wrap gap-2'>
+            <div className='w-full h-full flex flex-wrap gap-2 p-2'>
                 <div className='w-full px-2'>
                     <h1 className='text-3xl mb-3'>Orders</h1>
                 </div>
