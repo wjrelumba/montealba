@@ -45,6 +45,7 @@ body {
 
 input {
   border: solid 2px var(--button-border-color);
+  font-family: 'AutumnCrush';
 }
 
 #root, html {
@@ -57,7 +58,15 @@ button {
   color: var(--button-text-color);
   border: solid 2px var(--button-border-color);
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  /* transition: background-color 0.3s, color 0.3s; */
+}
+
+button:active {
+  color: var(--button-border-color);
+  background-color: var(--button-border-color);
+  border: solid 2px var(--button-text-color);
+  cursor: pointer;
+  /* transition: background-color 0.3s, color 0.3s; */
 }
 
 .navbar {
