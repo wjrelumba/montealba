@@ -5,6 +5,7 @@ import Products from "./Dashboard/Products/Products";
 import Login from "./Login/Login";
 import Welcome from "./Welcome/Welcome";
 
+// Montealba Pages
 const Pages = {
     Welcome,
     Login,

@@ -12,7 +12,7 @@ export default function Dashboard() {
     },[location.pathname]);
     
   return (
-    <div>
+    <div className="w-full h-full">
         <Outlet/>
     </div>
   )

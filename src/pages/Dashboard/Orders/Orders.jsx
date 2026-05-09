@@ -111,7 +111,7 @@ export default function Orders() {
                     <h1 className='text-3xl mb-3'>Orders</h1>
                 </div>
                 {/* Orders section */}
-                <div className='h-[28.5rem] overflow-scroll flex flex-col gap-2'>
+                <div className='h-full flex flex-col gap-2'>
                     {sampleOrdersArray && sampleOrdersArray.map((data, index) => (
                         <ItemComponent key={index} itemDetails={data} mode={'ordersMode'} />
                     ))}

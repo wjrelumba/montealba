@@ -32,7 +32,7 @@ export default function Products() {
                     <h1 className='text-2xl'>Products</h1>
                 </div>
                 {/* Products Section */}
-                <div className='h-[28.5rem] w-full flex flex-col gap-2 items-center overflow-scroll'>
+                <div className='h-full w-full flex flex-col gap-2 items-center overflow-scroll'>
                     {sampleFoodArray.map((data, index) => (
                         <ItemComponent key={index} itemDetails={data} mode={'productsMode'}/>
                     ))}
